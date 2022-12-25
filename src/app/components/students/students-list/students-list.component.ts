@@ -1,23 +1,21 @@
-import { OnInit } from '@angular/core';
-import { Component } from '@angular/core';
-import { StudentDetail } from './models/student-details';
-import { StudentDetailsService } from './services/student-details.service';
+import { Component, OnInit } from '@angular/core';
+import { StudentDetail } from 'src/app/models/student-details';
+import { StudentDetailsService } from 'src/app/services/student-details.service';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css'],
+  selector: 'app-students-list',
+  templateUrl: './students-list.component.html',
+  styleUrls: ['./students-list.component.css']
 })
-export class AppComponent implements OnInit{
-  title = 'StudentDetails.Ui';
+
+export class StudentsListComponent implements OnInit {
 
   students!: StudentDetail[];
-  studentEdit?:StudentDetail;
-  
+
   constructor(private studentDetailsService: StudentDetailsService) {}
 
   ngOnInit(): void {
-    this.getStudent();
+     this.getStudent();
   }
   
   getStudent(){
@@ -31,4 +29,6 @@ export class AppComponent implements OnInit{
       },
     });
   }
+    
+    
 }
